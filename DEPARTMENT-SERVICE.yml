@@ -1,6 +1,4 @@
 spring:
-  zipkin:
-    base-url: http://localhost:9411/
   datasource:
     url: jdbc:mysql://localhost:3306/mcpractise
     username: root
@@ -22,6 +20,14 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # trace 100% requests (dev only)
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
 
 logging:
   pattern:
