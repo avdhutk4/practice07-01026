@@ -29,6 +29,12 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+  tracing:
+    sampling:
+      probability: 1.0   # trace 100% requests (dev only)
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
 
 
 resilience4j:
@@ -56,13 +62,8 @@ resilience4j:
         limitRefreshPeriod: 20s
         timeoutDuration: 3s
 
-management:
-  tracing:
-    sampling:
-      probability: 1.0   # trace 100% requests (dev only)
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+
+  
 
 logging:
   pattern:
